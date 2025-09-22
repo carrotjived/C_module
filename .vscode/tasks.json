@@ -1,0 +1,47 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "Build FLTK App",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "-I/mingw64/include",
+                "-march=nocona",
+                "-msahf",
+                "-mtune=generic",
+                "-O2",
+                "-pipe",
+                "-Wp,-D_FORTIFY_SOURCE=2",
+                "-fstack-protector-strong",
+                "-Wp,-D__USE_MINGW_ANSI_STDIO=1",
+                "-D_LARGEFILE_SOURCE",
+                "-D_LARGEFILE64_SOURCE",
+                "-D_FILE_OFFSET_BITS=64",
+                "-L/mingw64/lib",
+                "-mwindows",
+                "-lfltk",
+                "-lole32",
+                "-lcomctl32",
+                "-lws2_32",
+                "-lwinspool"
+            ],
+            "options": {
+                "cwd": "C:\\msys64\\mingw64\\bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Task for building FLTK apps"
+        }
+    ]
+}

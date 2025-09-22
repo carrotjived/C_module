@@ -1,0 +1,15 @@
+Name,Rate,OvertimeRate,Tax
+Harry Potter,12,12,10
+Hermione Granger,12.50,14,10
+Ron Weasley,12.50,14,10
+Ginerva Weasley,12.50,14,10
+Draco Malfoy,50.50,100,20
+Severus Snape,42.50,44,15
+Luna Lovegood,12.50,14,10
+Millicent Bulstrode,24,23,21
+Neville Longbottom,14,15,12
+Thomas Dean,10,.10,10
+Sirius Black,10,10,10
+Bellatrix LeStrange,15.0,15.0,21.0
+Ginny Weasley,13.0,13.0,20.0
+Grindelwald,20.0,20.0,23.0
