@@ -12,6 +12,7 @@ This is a simple Payout Program written in C++ that can calculate the Net Income
 C++
 
 # Useful Websites
-https://www.youtube.com/watch?v=DMWD7wfhgNY 
+https://www.youtube.com/watch?v=DMWD7wfhgNY     
+https://openai.com/
 
 
