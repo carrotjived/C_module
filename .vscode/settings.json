@@ -6,6 +6,9 @@
         "iostream": "cpp",
         "cctype": "cpp",
         "regex": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "limits": "cpp",
+        "sstream": "cpp",
+        "fstream": "cpp"
     }
 }
