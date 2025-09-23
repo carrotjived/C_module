@@ -17,6 +17,7 @@
 
 using namespace std;
 
+//This will serve as a saving point for details of the person
 class Person {
     public: 
     
@@ -30,41 +31,50 @@ class Person {
 
 class PayrollApp {
     private: 
+        //struct for the basic GUI widgets
         Fl_Window* window;
         Fl_Input* nameInput;
         Fl_Button* submitButton;
         Fl_Button* calculateButton;
 
+        //Widgets for showing the current rate 
         Fl_Box* rateLabel;
         Fl_Box* overTimeLabel;
         Fl_Box* taxLabel;
 
+        //Widgets for hours input
         Fl_Input* hoursInput;
         Fl_Input* overTimeInput;
 
+        //Widgets for calculation for the pays and output of the pay
         Fl_Box* basePay;
         Fl_Box* overTimePay;
         Fl_Box* gross;
         Fl_Box* net;
 
+
         Person currentPerson;
 
+        //Widget for a support message 
         Fl_Box* statusLabel;
-    
+
+        //Widgets for creating new record
         Fl_Button* createRecordButton;
         Fl_Input* newRate;
         Fl_Input* newOvertimeRate;
         Fl_Input* newTax;
 
+        //Widget for delete button
         Fl_Button* deleteButton;
 
+        //Widget for update button
         Fl_Button* updateButton;
 
 
 
 
         //Utility:
-        
+        //This will set the decimal points to two
         string formatDouble(double value) {
             stringstream ss;
             ss<< fixed << setprecision(2) << value;
@@ -77,6 +87,8 @@ class PayrollApp {
             return oss.str();
         };
 
+
+        //Read the csv file, split them into respective parts, save them as a person, save them to a vector and return the vector 
         vector<Person> readCSV() {
             vector<Person> people;
             ifstream file("employee.csv");
@@ -120,7 +132,8 @@ class PayrollApp {
             return people;
 
         }
-
+        
+        //method to make sure the input string would be proper cased. Useful for saving the name in the creating record to make sure that name is properly cased.
         string properCasingName(const string& input){
             string result = input;
             bool capitalize = true;
@@ -139,6 +152,7 @@ class PayrollApp {
             return result;
         }
         
+        //This will show the rate from the Person class and populate the labels to be seen in the GUI
         void showRates() {
             rateLabel->copy_label(("Rate: $" + formatDouble(currentPerson.rate)).c_str());
             overTimeLabel->copy_label(("Overtime Rate: $" + formatDouble(currentPerson.overTimeRate)).c_str());
@@ -152,7 +166,7 @@ class PayrollApp {
             calculateButton->show();
 
         }
-
+        //Hide some labels and buttons to make the GUI clear
         void hideRates(){
             rateLabel->hide();
             overTimeLabel->hide();
@@ -173,7 +187,7 @@ class PayrollApp {
             newOvertimeRate->hide();
             newTax->hide();
         }
-
+        //Method to calculate and output the pay. Populates their respective labels to be shown in the GUI 
         void showPay() {
             
             double h = atof(hoursInput->value());
@@ -295,6 +309,7 @@ class PayrollApp {
             statusLabel->labelcolor(FL_RED);
             statusLabel->show();    
             deleteButton->hide();
+            updateButton->hide();
             createRecordButton->show();
         }
 
@@ -314,7 +329,7 @@ class PayrollApp {
                 //Append to CSV
                 ofstream file("employee.csv", ios::app);
                 if (file.is_open()) {
-                    file << n << "," << r << "," << ot << "," << t << "\n";
+                    file << n << "," << r << "," << ot << "," << t << "\n"; //Record will be saved as: "Victor Jared Onato, 12, 12, 12"
                     file.close();
                 }
 
@@ -491,7 +506,7 @@ class PayrollApp {
 
             
             //Create new Record Labels and Button
-            createRecordButton = new Fl_Button(150, 80, 175, 30, "Create New Record");
+            createRecordButton = new Fl_Button(150, 80, 175, 30, "Create Record");
             createRecordButton->hide();
             createRecordButton->callback(createRecordStatic, this);
 
