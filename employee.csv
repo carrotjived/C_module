@@ -1,6 +1,4 @@
-Name,Rate,OvertimeRate, Tax
-Harry Potter,15,18,10
-Hermione Granger,12.5,14,10
+Name,Rate,Overtime,Tax
 Ron Weasley,12.5,14,10
 Ginerva Weasley,12.5,14,10
 Draco Malfoy,50.5,100,20
@@ -16,3 +14,5 @@ Grindelwald,20,20,23
 Kreeza Mae,12,12,12
 Victor Jared Onato,15,15,15
 Kreeza,12,12,21
+Harry Potter,14,14,14
+Hermione Granger,12,12,12

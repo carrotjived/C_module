@@ -343,6 +343,7 @@ class PayrollApp {
                 hideNewRates();
                 showRates();
                 calculateButton->label("Calculate");
+                updateButton->show();
                 window->redraw();
                 return;
             }
@@ -433,6 +434,7 @@ class PayrollApp {
                 //Reset UI
                 hideNewRates();
                 hideRates();
+                updateButton->hide();
 
                 nameInput->value("");
                 deleteButton->hide();   
@@ -534,10 +536,10 @@ class PayrollApp {
             updateButton->hide();
             updateButton->callback(updateButtonStatic, this);
 
-
-            
-
+            //Finalize adding widgets to the window
             window->end();
+
+            //Display the window
             window->show();
             
 
@@ -545,6 +547,8 @@ class PayrollApp {
         }
 
     void run() {
+
+        //Start the FLTK event loop. Unless the user closes the window, it will remain looping the window.
         Fl::run();
     };
 
